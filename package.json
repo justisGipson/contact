@@ -4,7 +4,24 @@
   "bin": "./contact.js",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node contact.js"
+  },
   "author": "justisGipson",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justisGipson/contact.git"
+  },
+  "bugs": {
+    "url": "https://github.com/justisGipson/contact/issues"
+  },
+  "keywords": [
+    "Contacts",
+    "Address Book",
+    "Contact Book",
+    "Phone and email"
+  ],
   "license": "MIT",
   "dependencies": {
     "commander": "^3.0.2",
