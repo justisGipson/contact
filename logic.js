@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
 const assert = require('assert')
 
-mongoose.Promise = global.Promise
+mongoose.Promise = global.Promise //should allow the use fo global promises without error...
 
-const db = mongoose.connect('mongodb://localhost:27017/contact', {useNewUrlParser: true, useUnifiedTopology: true })
+const db = mongoose.connect('mongodb://localhost:27017/Contact', {useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log("Connected to Database"))
+.catch(err => console.error("An error has occurred", err));
 
 function toLower(v) {
     return v.toLowerCase()
