@@ -64,7 +64,7 @@ const updateContact = (_id, contact) => {
 // @function [deleteContact]
 // @returns {String} status
 const deleteContact = (_id) => {
-    Contact.remove({_id})
+    Contact.deleteOne({_id})
     .exec((err, status) => {
         assert.equal(null, err);
         console.info('Contact Deleted');
