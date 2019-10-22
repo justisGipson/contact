@@ -3,8 +3,11 @@ const assert = require('assert')
 
 mongoose.Promise = global.Promise //should allow the use fo global promises without error...
 
-const db = mongoose.connect('mongodb://localhost:27017/Contact', {useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log("Connected to Database"))
-.catch(err => console.error("An error has occurred", err));
+mongoose.connect('mongodb://localhost:27017/Contact', {useNewUrlParser: true, useUnifiedTopology: true })
+    //.then(() => console.log("Connected to Database"))
+    //.catch(err => console.error("An error has occurred", err));
+
+const db = mongoose.connection;
 
 function toLower(v) {
     return v.toLowerCase()
@@ -28,7 +31,7 @@ const addContact = (contact) => {
     Contact.create(contact, (err) => {
         assert.equal(null, err);
         console.info('New Contact Added');
-        db.disconnect();
+        db.close();
     })
 }
 
@@ -43,9 +46,43 @@ const getContact = (name) => {
         assert.equal(null, err);
         console.info(contact);
         console.info(`${contact.length} matches`);
-        db.disconnect();
+        db.close();
+    })
+}
+
+// @function [updateContact]
+// @returns {String} status
+const updateContact = (_id, contact) => {
+    Contact.update({_id}, contact)
+    .exec((err, status) => {
+        assert.equal(null, err);
+        console.info('Contact Updated');
+        db.close();
+    })
+}
+
+// @function [deleteContact]
+// @returns {String} status
+const deleteContact = (_id) => {
+    Contact.remove({_id})
+    .exec((err, status) => {
+        assert.equal(null, err);
+        console.info('Contact Deleted');
+        db.close();
+    })
+}
+
+// @function [getContactList]
+//@returns [contactList] contacts
+const getContactList = () => {
+    Contact.find()
+    .exec((err, contacts) => {
+        assert.equal(null, err);
+        console.info(contacts);
+        console.info(`${contacts.length} matches`);
+        db.close();
     })
 }
 
 // export all methods
-module.exports = {addContact, getContact}
+module.exports = {addContact, getContact, updateContact, deleteContact, getContactList}
