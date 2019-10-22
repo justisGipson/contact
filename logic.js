@@ -3,7 +3,7 @@ const assert = require('assert')
 
 mongoose.Promise = global.Promise
 
-const db = mongoose.connect('mongodb://localhost:27017/contact', {useNewUrlParser: true}, { useUnifiedTopology: true })
+const db = mongoose.connect('mongodb://localhost:27017/contact', {useNewUrlParser: true, useUnifiedTopology: true })
 
 function toLower(v) {
     return v.toLowerCase()
