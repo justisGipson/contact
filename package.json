@@ -1,0 +1,14 @@
+{
+  "name": "contact",
+  "preferGlobal": true,
+  "bin": "./contact.js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "justisGipson",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^3.0.2",
+    "inquirer": "^7.0.0",
+    "mongoose": "^5.7.6"
+  }
+}
