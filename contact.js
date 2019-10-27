@@ -32,8 +32,8 @@ program
     .description('Contact Management System');
 
 program
-    .command('addContact')
-    .alias('a')
+    .command('addContact ')
+    .alias(' a')
     .description('add contact')
     .action(() => {
         prompt(questions).then(answers => 
@@ -41,14 +41,14 @@ program
     });
 
 program
-    .command('getContact <name>')
-    .alias('r')
+    .command('getContact <name> ')
+    .alias(' r')
     .description('get contact')
     .action(name => getContact(name));
 
 program
-    .command('updateContact <_id>')
-    .alias('u')
+    .command('updateContact <_id> ')
+    .alias(' u')
     .description('update contact')
     .action(_id => {
         prompt(questions).then(answers => 
@@ -56,14 +56,14 @@ program
     });
 
 program
-    .command('deleteContact')
-    .alias('d')
+    .command('deleteContact ')
+    .alias(' d')
     .description('delete contact')
     .action(_id => deleteContact(_id));
 
 program
-    .command('getContactList')
-    .alias('l')
+    .command('getContactList ')
+    .alias(' l')
     .description('get contact list')
     .action(() => getContactList());
 
