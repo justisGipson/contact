@@ -2,7 +2,7 @@
   "name": "contact-book",
   "preferGlobal": true,
   "bin": "./contact.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "contact.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
