@@ -33,7 +33,7 @@ program
 
 program
     .command('addContact ')
-    .alias(' a')
+    .alias(' -a')
     .description('add contact')
     .action(() => {
         prompt(questions).then(answers => 
@@ -42,13 +42,13 @@ program
 
 program
     .command('getContact <name> ')
-    .alias(' r')
+    .alias(' -r')
     .description('get contact')
     .action(name => getContact(name));
 
 program
     .command('updateContact <_id> ')
-    .alias(' u')
+    .alias(' -u')
     .description('update contact')
     .action(_id => {
         prompt(questions).then(answers => 
@@ -57,13 +57,13 @@ program
 
 program
     .command('deleteContact ')
-    .alias(' d')
+    .alias(' -d')
     .description('delete contact')
     .action(_id => deleteContact(_id));
 
 program
     .command('getContactList ')
-    .alias(' l')
+    .alias(' -l')
     .description('get contact list')
     .action(() => getContactList());
 
